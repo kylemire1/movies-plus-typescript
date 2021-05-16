@@ -6,6 +6,7 @@ import BackgroundImage from '@/components/Login/BackgroundImage';
 import Viewers from '@/components/Viewers';
 import Recommendations from '@/components/Recommendations';
 import Layout from '../components/Layout';
+import ImageSlider from '@/components/ImageSlider';
 
 interface CategoryItem {
   id: string;
@@ -33,6 +34,7 @@ const HomePage: React.FC<HomePageProps> = ({
         <title>Home</title>
       </Head>
       <BackgroundImage />
+      <ImageSlider />
       <Viewers />
       <Recommendations
         sectionTitle="Recommended for You"

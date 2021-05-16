@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { createContext, Context, useContext, useState, useEffect } from 'react';
 import firebase from './firebase';
 
@@ -12,6 +13,7 @@ interface Auth {
 interface AuthContext {
   auth: Auth | null;
   loading: boolean;
+  needsAuth: boolean;
   signInWithGoogle: () => Promise<void>;
   signOut: () => Promise<void>;
 }
@@ -19,6 +21,7 @@ interface AuthContext {
 const authContext: Context<AuthContext> = createContext<AuthContext>({
   auth: null,
   loading: true,
+  needsAuth: true,
   signInWithGoogle: async () => {},
   signOut: async () => {},
 });
@@ -34,6 +37,8 @@ const formatAuthState = (user: firebase.User): Auth => ({
 function useProvideAuth(): AuthContext {
   const [auth, setAuth] = useState<Auth | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
+  const router = useRouter();
+  const needsAuth = router.pathname !== '/login';
 
   const handleAuthChange = async (authState: firebase.User | null) => {
     if (!authState) {
@@ -76,11 +81,18 @@ function useProvideAuth(): AuthContext {
     return () => unsubscribe();
   }, []);
 
+  useEffect(() => {
+    if (needsAuth && !loading && !auth) {
+      router.replace('/login');
+    }
+  }, [needsAuth, loading, auth]);
+
   return {
     auth,
     loading,
     signInWithGoogle,
     signOut,
+    needsAuth,
   };
 }
 

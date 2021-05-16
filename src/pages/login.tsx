@@ -9,11 +9,11 @@ const LoginPage = () => {
   const { auth } = useAuth();
   const router = useRouter();
 
-  // useEffect(() => {
-  //   if (auth) {
-  //     router.replace('/');
-  //   }
-  // }, [auth]);
+  useEffect(() => {
+    if (auth) {
+      router.replace('/');
+    }
+  }, [auth]);
 
   return (
     <Layout>

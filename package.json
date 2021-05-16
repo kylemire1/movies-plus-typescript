@@ -24,6 +24,7 @@
     ]
   },
   "dependencies": {
+    "@brainhubeu/react-carousel": "2.0.3",
     "@graywolfai/react-heroicons": "1.2.3",
     "@heroicons/react": "1.0.1",
     "firebase": "8.6.1",
@@ -31,7 +32,6 @@
     "next": "10.2.0",
     "react": "17.0.2",
     "react-dom": "17.0.2",
-    "react-slider-responsive": "1.0.1",
     "tailwind-pseudo-elements": "0.4.0",
     "tailwind-scrollbar-hide": "1.0.3"
   },
@@ -39,6 +39,7 @@
     "@commitlint/cli": "12.1.1",
     "@commitlint/config-conventional": "12.1.1",
     "@firebase/firestore-types": "2.3.0",
+    "@types/brainhubeu__react-carousel": "2.0.2",
     "@types/node": "14.14.44",
     "@types/react": "17.0.5",
     "@types/react-dom": "17.0.3",
