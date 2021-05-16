@@ -8,9 +8,11 @@ const Login = () => {
   return (
     <>
       <BackgroundImage src="/images/login-background.jpg" />
-      <div className="mb-48 py-20 px-10 w-full relative min-h-screen h-full box-border flex flex-col justify-center items-center">
+      <div className="mb-48 py-20 px-10 w-full relative h-screen box-border flex flex-col justify-center items-center">
         <div className="flex flex-col justify-center items-center flex-wrap text-center mx-auto w-full max-w-2xl mb-5">
-          <OfferLogos src="/images/cta-logo-one.svg" width={576} height={134} />
+          <h1 className="text-4xl font-bold mb-8">
+            Thousands of Titles On-Demand
+          </h1>
           <CtaButton onClick={signInWithGoogle}>Sign Up Now</CtaButton>
           <p className="text-gray-300 my-6 text-sm tracking-wide">
             Get Premier Access to Foo and the Last Baz for an additional fee

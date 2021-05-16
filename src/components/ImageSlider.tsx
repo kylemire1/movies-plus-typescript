@@ -25,10 +25,10 @@ const ImageSlider: React.FC = () => {
         ]}
         className="mt-5"
       >
-        <Slide src="/images/slider-scale.jpg" />
-        <Slide src="/images/slider-badging.jpg" />
-        <Slide src="/images/slider-badag.jpg" />
-        <Slide src="/images/slider-scales.jpg" />
+        <Slide src="/images/sci-fi.jpg" />
+        <Slide src="/images/romance.jpg" />
+        <Slide src="/images/fantasy.jpg" />
+        <Slide src="/images/action.jpg" />
       </Carousel>
     </Container>
   );

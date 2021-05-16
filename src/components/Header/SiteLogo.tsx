@@ -7,7 +7,7 @@ const SiteLogo = () => {
       <Link href="/">
         <a>
           <Image
-            src="/images/logo.svg"
+            src="/images/moviesplus-logo.png"
             objectFit="contain"
             objectPosition="left"
             layout="fixed"
