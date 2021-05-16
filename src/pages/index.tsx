@@ -1,67 +1,90 @@
 import Head from 'next/head';
-import styles from '../styles/Home.module.css';
+import { GetServerSideProps } from 'next';
+import { getMoviesByCategory } from '@/lib/db';
+import firebase from '@/lib/firebase';
+import BackgroundImage from '@/components/Login/BackgroundImage';
+import Viewers from '@/components/Viewers';
+import Recommendations from '@/components/Recommendations';
+import Layout from '../components/Layout';
 
-export default function Home() {
-  return (
-    <div className={styles.container}>
-      <Head>
-        <title>Create Next App</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
-
-      <main className={styles.main}>
-        <h1 className={styles.title}>
-          Welcome to <a href="https://nextjs.org">Next.js!</a>
-        </h1>
-
-        <p className={styles.description}>
-          Get started by editing{` `}
-          <code className={styles.code}>pages/index.js</code>
-        </p>
-
-        <p className={styles.description}>This is not an official starter!</p>
-
-        <div className={styles.grid}>
-          <a href="https://nextjs.org/docs" className={styles.card}>
-            <h3>Documentation &rarr;</h3>
-            <p>Find in-depth information about Next.js features and API.</p>
-          </a>
-
-          <a href="https://nextjs.org/learn" className={styles.card}>
-            <h3>Learn &rarr;</h3>
-            <p>Learn about Next.js in an interactive course with quizzes!</p>
-          </a>
-
-          <a
-            href="https://github.com/vercel/next.js/tree/master/examples"
-            className={styles.card}
-          >
-            <h3>Examples &rarr;</h3>
-            <p>Discover and deploy boilerplate example Next.js projects.</p>
-          </a>
-
-          <a
-            href="https://vercel.com/new?utm_source=typescript-nextjs-starter"
-            className={styles.card}
-          >
-            <h3>Deploy &rarr;</h3>
-            <p>
-              Instantly deploy your Next.js site to a public URL with Vercel.
-            </p>
-          </a>
-        </div>
-      </main>
-
-      <footer className={styles.footer}>
-        <a
-          href="https://vercel.com?utm_source=typescript-nextjs-starter"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Powered by{` `}
-          <img src="/vercel.svg" alt="Vercel Logo" className={styles.logo} />
-        </a>
-      </footer>
-    </div>
-  );
+interface CategoryItem {
+  id: string;
+  movieData: firebase.firestore.DocumentData;
 }
+
+export type Category = Array<CategoryItem> | [];
+
+interface HomePageProps {
+  recommend: Category;
+  newArrival: Category;
+  original: Category;
+  trending: Category;
+}
+
+const HomePage: React.FC<HomePageProps> = ({
+  recommend,
+  newArrival,
+  original,
+  trending,
+}) => {
+  return (
+    <Layout>
+      <Head>
+        <title>Home</title>
+      </Head>
+      <BackgroundImage />
+      <Viewers />
+      <Recommendations
+        sectionTitle="Recommended for You"
+        category={recommend}
+      />
+      <Recommendations sectionTitle="New to Movies+" category={newArrival} />
+      <Recommendations sectionTitle="Movies+ Originals" category={original} />
+      <Recommendations sectionTitle="Trending" category={trending} />
+    </Layout>
+  );
+};
+
+export const getServerSideProps: GetServerSideProps = async () => {
+  let recommend: Category = [],
+    newArrival: Category = [],
+    original: Category = [],
+    trending: Category = [];
+
+  try {
+    recommend = await fetchMovies('recommend');
+    newArrival = await fetchMovies('newArrival');
+    original = await fetchMovies('original');
+    trending = await fetchMovies('trending');
+  } catch (err) {
+    throw new err();
+  }
+
+  return {
+    props: {
+      recommend,
+      newArrival,
+      original,
+      trending,
+    },
+  };
+};
+
+const fetchMovies = async (category: string): Promise<Category> => {
+  return await getMoviesByCategory(category).then(formatDocForProps);
+};
+
+const formatDocForProps = (
+  querySnapshot: firebase.firestore.QuerySnapshot,
+): Category => {
+  const data = querySnapshot.docs.map((doc) => {
+    const formattedCategory: CategoryItem = {
+      id: doc.id,
+      movieData: doc.data(),
+    };
+    return formattedCategory;
+  });
+  return data;
+};
+
+export default HomePage;

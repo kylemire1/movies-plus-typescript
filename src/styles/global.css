@@ -1,16 +1,71 @@
-html,
-body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full overflow-x-hidden;
+  }
+  body {
+    @apply overflow-x-hidden bg-brand-dark text-brand-white font-sans text-sm md:text-base h-full;
+  }
+  #__next {
+    @apply relative min-h-full;
+  }
+  a {
+    @apply text-brand-white no-underline;
+  }
+  p {
+    @apply text-lg max-w-prose;
+  }
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.slick-slider {
+  display: flex !important;
+  align-items: center;
 }
 
-* {
-  box-sizing: border-box;
+.slick-slider * {
+  height: 100%;
+  width: 100%;
+  text-align: left;
+}
+
+.slick-arrow {
+  opacity: 0;
+  height: 100% !important;
+  width: 5vw;
+  z-index: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.slick-arrow:hover {
+  opacity: 1;
+  transition: opacity 200ms ease-in-out;
+}
+
+.slick-dots {
+  height: auto;
+  bottom: -35px !important;
+}
+
+.slick-dots li button:before {
+  font-size: 1rem !important;
+  color: white !important;
+  width: 2rem;
+  height: 2rem;
+}
+
+.slick-list {
+  overflow: initial !important;
+}
+
+.slick-prev {
+  left: -30px !important;
+}
+
+.slick-slide {
+  display: flex !important;
+  align-items: center;
+  justify-content: center;
 }
