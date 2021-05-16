@@ -22,7 +22,7 @@ const Header: React.FC = () => {
 
   return (
     <header
-      className={`absolute top-0 left-0 right-0 flex items-center px-10 min-h-header ${headerBgClass}`}
+      className={`fixed z-50 top-0 left-0 right-0 flex items-center px-10 min-h-header ${headerBgClass}`}
     >
       {auth ? (
         <>

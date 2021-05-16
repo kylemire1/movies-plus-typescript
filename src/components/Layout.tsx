@@ -6,21 +6,19 @@ interface LayoutProps {
 }
 
 const Layout: React.FC<LayoutProps> = ({ children }) => {
-  const { loading, auth } = useAuth();
+  const { loading, auth, needsAuth } = useAuth();
 
   const sectionClasses: string = 'flex flex-col z-10';
   const loaderWrapperClasses: string =
     'w-screen h-screen flex items-center justify-center';
 
-  let needsAuth = false;
-  console.log(loading);
   if (!needsAuth) {
     return (
       <>
+        <Header />
         <section className={sectionClasses + (!auth ? ' text-center' : '')}>
           {loading ? <div className={loaderWrapperClasses} /> : children}
         </section>
-        <Header />
       </>
     );
   }
@@ -28,6 +26,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   // If the route needs auth, don't let any part of it show until auth is resolved
   return (
     <>
+      {!loading && <Header />}
       <section className={sectionClasses}>
         {loading ? (
           <div className={loaderWrapperClasses} />
@@ -35,7 +34,6 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           !loading && auth && children
         )}
       </section>
-      {!loading && <Header />}
     </>
   );
 };
