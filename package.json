@@ -24,6 +24,7 @@
     ]
   },
   "dependencies": {
+    "@badrap/bar-of-progress": "0.1.2",
     "@brainhubeu/react-carousel": "2.0.3",
     "@graywolfai/react-heroicons": "1.2.3",
     "@heroicons/react": "1.0.1",

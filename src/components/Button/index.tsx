@@ -5,7 +5,7 @@ import RoundIcon from './RoundIconButon';
 
 type ButtonElementType = 'link' | 'button';
 export interface ButtonVariant {
-  children: React.ReactNode;
+  children?: React.ReactNode;
   elType: ButtonElementType;
   href?: string;
   onClick?: (a: any) => void;
