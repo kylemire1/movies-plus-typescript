@@ -69,7 +69,11 @@ function useProvideAuth(): AuthContext {
     return firebase
       .auth()
       .signInWithPopup(new firebase.auth.GoogleAuthProvider())
-      .then(signedIn);
+      .then(signedIn)
+      .catch((e) => {
+        console.error(e);
+        setLoading(false);
+      });
   };
 
   const signOut = () => {

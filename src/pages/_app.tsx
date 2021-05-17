@@ -1,5 +1,5 @@
 import { AppProps } from 'next/app';
-import '@/styles/global.css';
+import '@/styles/global.scss';
 import '@brainhubeu/react-carousel/lib/style.css';
 import { AuthProvider } from '@/lib/auth';
 import ProgressBar from '@badrap/bar-of-progress';

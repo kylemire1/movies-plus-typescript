@@ -1,25 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer base {
-  html {
-    @apply h-full overflow-x-hidden;
-  }
-  body {
-    @apply overflow-x-hidden bg-brand-dark text-brand-white font-sans text-sm md:text-base h-full;
-  }
-  #__next {
-    @apply relative min-h-full;
-  }
-  a {
-    @apply text-brand-white no-underline;
-  }
-  p {
-    @apply text-lg max-w-prose;
-  }
-}
-
 .BrainhubCarousel__track,
 .BrainhubCarousel__trackContainer,
 .BrainhubCarousel__container,
@@ -27,6 +5,8 @@
   overflow: visible !important;
 }
 
+.BrainhubCarousel__container,
+.BrainhubCarousel,
 .BrainhubCarousel *:not(button) {
   height: 100% !important;
 }

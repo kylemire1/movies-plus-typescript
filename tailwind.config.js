@@ -7,11 +7,17 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      fontSize: {
+        huge: ['4.65rem', '4.5rem'],
+      },
       padding: {
         'img-hack': '55%',
       },
+      height: {
+        header: '5rem',
+      },
       minHeight: {
-        header: '7.25rem',
+        header: '5rem',
         'slider-full': '27.5rem',
       },
       colors: {
@@ -24,7 +30,7 @@ module.exports = {
         },
       },
       fontFamily: {
-        brand: ['Avenir-Roman', 'sans-serif'],
+        brand: ['Aileron', 'sans-serif'],
       },
     },
   },

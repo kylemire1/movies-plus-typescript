@@ -1,0 +1,23 @@
+@use './carousel';
+@use "./fonts";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    @apply h-full overflow-x-hidden;
+  }
+  body {
+    @apply overflow-x-hidden bg-brand-dark text-brand-white font-brand text-sm md:text-base h-full;
+  }
+  #__next {
+    @apply relative min-h-full;
+  }
+  a {
+    @apply text-brand-white no-underline;
+  }
+  p {
+    @apply text-lg max-w-prose;
+  }
+}

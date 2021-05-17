@@ -13,6 +13,7 @@ const SiteLogo = () => {
             layout="fixed"
             width={100}
             height={61}
+            alt="Movies Plus"
           />
         </a>
       </Link>

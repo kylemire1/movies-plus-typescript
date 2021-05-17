@@ -1,3 +1,4 @@
+import { useRouter } from 'next/router';
 import { useAuth } from '@/lib/auth';
 import { LogoutIcon } from '@heroicons/react/solid';
 import Image from 'next/image';
@@ -9,6 +10,8 @@ type LoginLogoutHandler = (action: 'LOGIN' | 'LOGOUT') => Promise<void>;
 
 const Header: React.FC = () => {
   const { auth, signInWithGoogle, signOut } = useAuth();
+  const router = useRouter();
+  const isInsideApp = router.pathname !== '/login';
 
   const handleClick: LoginLogoutHandler = async (action) => {
     if (action === 'LOGIN') {
@@ -18,13 +21,13 @@ const Header: React.FC = () => {
     }
   };
 
-  const headerBgClass: string = auth ? 'bg-brand-dark' : '';
+  const headerBgClass: string = isInsideApp ? 'bg-brand-dark' : '';
 
   return (
     <header
-      className={`fixed z-50 top-0 left-0 right-0 flex items-center px-10 min-h-header ${headerBgClass}`}
+      className={`fixed z-50 top-0 left-0 right-0 flex items-center px-10 h-header ${headerBgClass}`}
     >
-      {auth ? (
+      {isInsideApp && auth ? (
         <>
           <SiteLogo />
           <Nav />
@@ -49,16 +52,7 @@ const Header: React.FC = () => {
             </div>
           )}
         </>
-      ) : (
-        <Button
-          className="ml-auto"
-          variantName="outline"
-          elType="button"
-          onClick={() => handleClick(!auth ? 'LOGIN' : 'LOGOUT')}
-        >
-          Login
-        </Button>
-      )}
+      ) : null}
     </header>
   );
 };

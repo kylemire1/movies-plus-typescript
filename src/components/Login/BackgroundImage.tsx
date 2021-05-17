@@ -16,6 +16,7 @@ const BackgroundImage: React.FC<BackgroundImageProps> = ({
         src={src}
         layout="fill"
         objectFit="cover"
+        quality={100}
         alt=""
       />
     );

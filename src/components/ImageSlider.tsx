@@ -8,7 +8,7 @@ const Carousel = dynamic(() => import('@brainhubeu/react-carousel'), {
 
 const ImageSlider: React.FC = () => {
   return (
-    <Container className="mt-28 h-56  md:h-64  xl:h-full xl:min-h-slider-full z-10">
+    <Container className="mt-16 h-64 xl:h-full xl:min-h-slider-full z-10">
       <Carousel
         plugins={[
           'arrows',

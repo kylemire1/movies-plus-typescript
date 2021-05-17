@@ -1,4 +1,3 @@
-import Layout from '../Layout';
 import Container from '../styled/Container';
 import { useFormattedRecommendData } from '../../utils/hooks/useFormattedRecommendData';
 import { Category } from '../../pages/index';
@@ -10,8 +9,8 @@ interface RecommendationsProps {
 }
 
 const Recommendations: React.FC<RecommendationsProps> = ({
-  sectionTitle,
   category,
+  sectionTitle,
 }) => {
   const recommendedData = useFormattedRecommendData(category);
 
