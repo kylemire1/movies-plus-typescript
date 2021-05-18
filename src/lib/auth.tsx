@@ -71,7 +71,7 @@ function useProvideAuth(): AuthContext {
       .signInWithPopup(new firebase.auth.GoogleAuthProvider())
       .then(signedIn)
       .catch((e) => {
-        console.error(e);
+        console.error(e.message);
         setLoading(false);
       });
   };
