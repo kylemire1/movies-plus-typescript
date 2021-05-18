@@ -1,11 +1,7 @@
 import { useAuth } from '@/lib/auth';
 import Header from './Header';
 
-interface LayoutProps {
-  children: React.ReactNode;
-}
-
-const Layout: React.FC<LayoutProps> = ({ children }) => {
+const Layout = ({ children }: { children: React.ReactNode }) => {
   const { loading, auth, needsAuth } = useAuth();
 
   const sectionClasses: string = 'flex flex-col z-10';

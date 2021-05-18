@@ -8,7 +8,7 @@ import SiteLogo from './SiteLogo';
 
 type LoginLogoutHandler = (action: 'LOGIN' | 'LOGOUT') => Promise<void>;
 
-const Header: React.FC = () => {
+const Header = () => {
   const { auth, signInWithGoogle, signOut } = useAuth();
   const router = useRouter();
   const isInsideApp = router.pathname !== '/login';

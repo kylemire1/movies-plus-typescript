@@ -28,7 +28,7 @@ const Login = () => {
           </h2>
           <CtaButton onClick={signInWithGoogle}>Log In With Google</CtaButton>
           <p className="text-gray-300 my-6 text-sm tracking-wide">
-            Get Premier Access to Foo and the Last Baz for an additional fee
+            Get Premier Access to Fizz and the Last Buzz for an additional fee
             with a Movies+ subscription. As of 03/26/21, the price of Movies+
             and The Movies Bundle will increase by $1.
           </p>

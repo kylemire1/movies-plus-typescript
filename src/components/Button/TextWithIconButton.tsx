@@ -1,14 +1,14 @@
 import Link from 'next/link';
-import { ButtonVariant } from '.';
+import { ButtonVariant } from './index';
 
-const TextWithIconButton: React.FC<ButtonVariant> = ({
+const TextWithIconButton = ({
   children,
   elType,
   href,
   onClick,
   className,
   Icon,
-}) => {
+}: ButtonVariant) => {
   const textWithIconButtonClasses =
     'py-2 px-4 text-sm text-red-100 flex items-center justify-center opacity-70 hover:text-red-500 hover:opacity-100 transition duration-200 ease-in-out';
 

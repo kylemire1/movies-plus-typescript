@@ -16,10 +16,12 @@ Router.events.on('routeChangeStart', progress.start);
 Router.events.on('routeChangeComplete', progress.finish);
 Router.events.on('routeChangeError', progress.finish);
 
-export default function MyApp({ Component, pageProps }: AppProps) {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   return (
     <AuthProvider>
       <Component {...pageProps} />
     </AuthProvider>
   );
-}
+};
+
+export default MyApp;

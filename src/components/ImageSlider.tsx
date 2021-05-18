@@ -2,11 +2,12 @@ import Image from 'next/image';
 import dynamic from 'next/dynamic';
 import Container from './styled/Container';
 import { autoplayPlugin } from '@brainhubeu/react-carousel';
+
 const Carousel = dynamic(() => import('@brainhubeu/react-carousel'), {
   ssr: false,
 });
 
-const ImageSlider: React.FC = () => {
+const ImageSlider = () => {
   return (
     <Container className="mt-16 h-64 xl:h-full xl:min-h-slider-full z-10">
       <Carousel
@@ -34,17 +35,10 @@ const ImageSlider: React.FC = () => {
   );
 };
 
-interface SlideProps {
-  src: string;
-}
-
-const Slide: React.FC<SlideProps> = ({ src }) => {
+const Slide = ({ src }: { src: string }) => {
   return (
     <div className="w-full h-full tab-">
-      <a
-        href="#"
-        className="block cursor-pointer m-1 shadow-2xl rounded-lg hover:ring-2 focus:ring-2 ring-brand-white transition-shadow ease-in-out duration-200"
-      >
+      <div className="block cursor-pointer m-1 shadow-2xl rounded-lg hover:ring-2 focus:ring-2 ring-brand-white transition-shadow ease-in-out duration-200">
         <Image
           className="rounded-lg"
           src={src}
@@ -53,7 +47,7 @@ const Slide: React.FC<SlideProps> = ({ src }) => {
           width={1440}
           height={368}
         />
-      </a>
+      </div>
     </div>
   );
 };

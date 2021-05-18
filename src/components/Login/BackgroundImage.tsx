@@ -1,13 +1,11 @@
 import Image from 'next/image';
 
-interface BackgroundImageProps {
-  src?: string;
-  offsetTop?: boolean;
-}
-
-const BackgroundImage: React.FC<BackgroundImageProps> = ({
+const BackgroundImage = ({
   src,
   offsetTop,
+}: {
+  src?: string;
+  offsetTop?: boolean;
 }) => {
   if (src) {
     return (

@@ -1,16 +1,14 @@
 import Container from '../styled/Container';
-import { useFormattedRecommendData } from '../../utils/hooks/useFormattedRecommendData';
-import { Category } from '../../pages/index';
+import { useFormattedRecommendData } from '@/utils/hooks/useFormattedRecommendData';
+import { Category } from '@/pages/index';
 import RecommendationGrid from './RecommendationGrid';
 
-interface RecommendationsProps {
-  sectionTitle: string;
-  category: Category;
-}
-
-const Recommendations: React.FC<RecommendationsProps> = ({
+const Recommendations = ({
   category,
   sectionTitle,
+}: {
+  sectionTitle: string;
+  category: Category;
 }) => {
   const recommendedData = useFormattedRecommendData(category);
 

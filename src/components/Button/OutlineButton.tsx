@@ -1,13 +1,13 @@
 import Link from 'next/link';
-import { ButtonVariant } from '.';
+import { ButtonVariant } from './index';
 
-const OutlineButton: React.FC<ButtonVariant> = ({
+const OutlineButton = ({
   children,
   elType,
   href,
   onClick,
   className,
-}) => {
+}: ButtonVariant) => {
   const outlineButtonClasses =
     'p-4 border border-white border-solid rounded bg-brand-dark bg-opacity-70 uppercase tracking-widest hover:bg-brand-white hover:text-brand-dark transition-colors duration-200 ease-in-out';
 

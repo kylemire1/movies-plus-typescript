@@ -1,11 +1,12 @@
 import Controls from './Controls';
 
-interface DetailsMeta {
+const DetailsMeta = ({
+  subtitle,
+  description,
+}: {
   subtitle: string;
   description: string;
-}
-
-const DetailsMeta: React.FC<DetailsMeta> = ({ subtitle, description }) => {
+}) => {
   return (
     <div>
       <Controls />

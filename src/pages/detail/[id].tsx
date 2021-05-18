@@ -15,13 +15,13 @@ interface DetailPageProps {
   description: string;
 }
 
-const DetailPage: React.FC<DetailPageProps> = ({
+const DetailPage = ({
   title,
   backgroundImg,
   titleImg,
   subTitle,
   description,
-}) => {
+}: DetailPageProps) => {
   return (
     <Layout>
       <Head>

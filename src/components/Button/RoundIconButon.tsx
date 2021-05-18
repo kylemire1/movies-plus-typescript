@@ -1,7 +1,7 @@
 import Link from 'next/link';
-import { ButtonVariant } from '.';
+import { ButtonVariant } from './index';
 
-const RoundIconButton: React.FC<ButtonVariant> = ({
+const RoundIconButton = ({
   elType,
   href,
   onClick,
@@ -10,7 +10,7 @@ const RoundIconButton: React.FC<ButtonVariant> = ({
   width,
   height,
   children,
-}) => {
+}: ButtonVariant) => {
   const outlineButtonClasses =
     'p-4 border border-white border-solid rounded-full bg-brand-dark bg-opacity-70 uppercase tracking-widest hover:bg-brand-white hover:text-brand-dark transition-colors duration-200 ease-in-out';
 

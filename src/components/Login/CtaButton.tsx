@@ -1,9 +1,10 @@
-interface CtaButtonProps {
+const CtaButton = ({
+  children,
+  onClick,
+}: {
   children: React.ReactNode;
-  onClick: () => void;
-}
-
-const CtaButton: React.FC<CtaButtonProps> = ({ children, onClick }) => {
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
+}) => {
   return (
     <button
       onClick={onClick}

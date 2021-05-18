@@ -1,4 +1,3 @@
-import React from 'react';
 import OutlineButton from './OutlineButton';
 import TextWithIconButton from './TextWithIconButton';
 import RoundIcon from './RoundIconButon';
@@ -8,7 +7,7 @@ export interface ButtonVariant {
   children?: React.ReactNode;
   elType: ButtonElementType;
   href?: string;
-  onClick?: (a: any) => void;
+  onClick?: React.MouseEventHandler<HTMLButtonElement>;
   className?: string;
   Icon?: any;
   width?: number;
@@ -21,11 +20,7 @@ interface ButtonProps extends ButtonVariant {
   restOfProps?: ButtonVariant;
 }
 
-const Button: React.FC<ButtonProps> = ({
-  children,
-  variantName,
-  ...restOfProps
-}) => {
+const Button = ({ children, variantName, ...restOfProps }: ButtonProps) => {
   switch (variantName) {
     case 'outline':
       return <OutlineButton {...restOfProps}>{children}</OutlineButton>;

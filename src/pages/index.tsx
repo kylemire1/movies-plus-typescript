@@ -1,11 +1,11 @@
 import Head from 'next/head';
-import { GetServerSideProps } from 'next';
+import { GetServerSideProps, NextPage } from 'next';
 import { getMoviesByCategory } from '@/lib/db';
 import firebase from '@/lib/firebase';
 import BackgroundImage from '@/components/Login/BackgroundImage';
 import Viewers from '@/components/Viewers';
 import Recommendations from '@/components/Recommendations';
-import Layout from '../components/Layout';
+import Layout from '@/components/Layout';
 import ImageSlider from '@/components/ImageSlider';
 
 interface CategoryItem {
@@ -15,18 +15,16 @@ interface CategoryItem {
 
 export type Category = Array<CategoryItem> | [];
 
-interface HomePageProps {
-  recommend: Category;
-  newArrival: Category;
-  original: Category;
-  trending: Category;
-}
-
-const HomePage: React.FC<HomePageProps> = ({
+const HomePage = ({
   recommend,
   newArrival,
   original,
   trending,
+}: {
+  recommend: Category;
+  newArrival: Category;
+  original: Category;
+  trending: Category;
 }) => {
   return (
     <Layout>

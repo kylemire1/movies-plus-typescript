@@ -1,8 +1,4 @@
-interface FadeOverlayProps {
-  position: 'left' | 'right';
-}
-
-const FadeOverlay: React.FC<FadeOverlayProps> = ({ position }) => {
+const FadeOverlay = ({ position }: { position: 'left' | 'right' }) => {
   let positionClass = 'right-0';
   let gradientDirection = 'bg-gradient-to-l';
   if (position === 'left') {
