@@ -27,6 +27,7 @@ type Status =
   | 'Canceled';
 export type Genre = { id: number; name: string };
 
+// https://developers.themoviedb.org/3/movies/get-movie-details
 export interface Movie {
   adult?: boolean;
   backdrop_path?: string | null;
@@ -60,7 +61,7 @@ export type Category = Movie[];
 export const getMoviesByCategoryId = async (
   categoryId: string = 'trending',
 ): Promise<Category> => {
-  let requestUri: string | undefined;
+  let requestUri;
   if (categoryId !== 'trending') {
     requestUri = `/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=${categoryId}&adult=true`;
   } else {

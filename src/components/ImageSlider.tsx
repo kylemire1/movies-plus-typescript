@@ -37,8 +37,8 @@ const ImageSlider = () => {
 
 const Slide = ({ src }: { src: string }) => {
   return (
-    <div className="w-full h-full tab-">
-      <div className="block cursor-pointer m-1 shadow-2xl rounded-lg hover:ring-2 focus:ring-2 ring-brand-white transition-shadow ease-in-out duration-200">
+    <div className="w-full h-full">
+      <div className="block cursor-pointer m-1 mx-2 shadow-2xl rounded-lg hover:ring-2 focus:ring-2 ring-brand-white transition-shadow ease-in-out duration-200">
         <Image
           className="rounded-lg"
           src={src}

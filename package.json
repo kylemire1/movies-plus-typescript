@@ -38,6 +38,7 @@
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "sass": "1.32.13",
+    "slugify": "1.5.3",
     "tailwind-pseudo-elements": "0.4.0",
     "tailwind-scrollbar-hide": "1.0.3"
   },

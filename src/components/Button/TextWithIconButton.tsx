@@ -17,6 +17,7 @@ const TextWithIconButton = ({
       <Link href={href}>
         <a className={`${textWithIconButtonClasses} ${className}`}>
           {children}
+          {Icon && <Icon width={20} height={20} className="ml-2" />}
         </a>
       </Link>
     );

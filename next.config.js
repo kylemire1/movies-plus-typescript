@@ -1,4 +1,7 @@
 module.exports = {
+  experimental: {
+    scrollRestoration: true,
+  },
   images: {
     domains: [
       'lh5.googleusercontent.com',
