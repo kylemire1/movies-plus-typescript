@@ -4,7 +4,7 @@ const BackgroundImage = ({
   src,
   offsetTop,
 }: {
-  src?: string;
+  src?: string | null;
   offsetTop?: boolean;
 }) => {
   if (src) {
@@ -24,7 +24,7 @@ const BackgroundImage = ({
     <div
       aria-hidden="true"
       className={`absolute inset-0 bg-gradient-to-br from-[#282c3c] to-[#0d0e14] z-0 ${
-        offsetTop ? 'top-28' : ''
+        offsetTop ? 'top-22' : ''
       }`}
     />
   );

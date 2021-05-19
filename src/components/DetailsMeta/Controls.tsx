@@ -8,30 +8,30 @@ const Controls = () => {
       <Button
         variantName="outline"
         elType="button"
-        className="flex items-center md:text-2xl"
+        className="flex items-center"
       >
-        <PlayIcon width={35} height={35} className="mr-2" /> Play
+        <PlayIcon width={25} height={25} className="mr-2" /> Play
       </Button>
       <Button
         variantName="outline"
         elType="button"
-        className="flex items-center md:text-2xl"
+        className="flex items-center"
       >
-        <PlayIcon width={35} height={35} className="mr-2" /> Trailer
+        <PlayIcon width={25} height={25} className="mr-2" /> Trailer
       </Button>
       <Button
         variantName="roundIcon"
         elType="button"
         Icon={PlusIcon}
-        width={35}
-        height={35}
+        width={25}
+        height={25}
       />
       <Button
         variantName="roundIcon"
         elType="button"
         Icon={UserGroupIcon}
-        width={35}
-        height={35}
+        width={25}
+        height={25}
       />
     </div>
   );

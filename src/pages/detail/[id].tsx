@@ -1,66 +1,72 @@
 import DetailsMeta from '@/components/DetailsMeta';
+import Genres from '@/components/Genres';
 import Layout from '@/components/Layout';
 import BackgroundImage from '@/components/Login/BackgroundImage';
 import Container from '@/components/styled/Container';
-import { getMovie } from '@/lib/db';
-import { GetServerSideProps } from 'next';
+import { fetchCategoriesForProps, getMovie, Movie } from '@/lib/movies';
+import { GetStaticPaths, GetStaticPathsResult, GetStaticProps } from 'next';
 import Head from 'next/head';
-import Image from 'next/image';
-
-interface DetailPageProps {
-  title: string;
-  backgroundImg: string;
-  titleImg: string;
-  subTitle: string;
-  description: string;
-}
+import { ParsedUrlQuery } from 'querystring';
 
 const DetailPage = ({
-  title,
-  backgroundImg,
-  titleImg,
-  subTitle,
-  description,
-}: DetailPageProps) => {
+  movie: { backdrop_path, title, tagline, genres, overview },
+}: {
+  movie: Movie;
+}) => {
   return (
     <Layout>
       <Head>
         <title>{title} | Movies+</title>
       </Head>
-      <BackgroundImage src={backgroundImg} offsetTop />
-      <div className="absolute inset-0 bg-gradient-to-r from-[rgba(0,0,0,.75)] to-transparent" />
-      <Container className="mt-28">
-        <div className="max-w-xl">
-          <Image src={titleImg} width={851} height={479} />
+      <BackgroundImage
+        src={
+          backdrop_path
+            ? 'https://image.tmdb.org/t/p/w1280/' + backdrop_path
+            : null
+        }
+        offsetTop
+      />
+      <div className="absolute inset-0 bg-black opacity-70 xl:bg-transparent xl:opacity-100 xl:bg-gradient-to-r from-[rgba(0,0,0,.75)] to-transparent" />
+      <Container
+        fullHeight
+        className="mt-28 min-h-detail h-full flex flex-col justify-center"
+      >
+        <div className="mx-auto max-w-4xl xl:mx-0 xl:max-w-full">
+          <h1 className="text-7xl font-black">{title} </h1>
+          <Genres genres={genres} />
+          <DetailsMeta subtitle={tagline} overview={overview} />
         </div>
-        <DetailsMeta subtitle={subTitle} description={description} />
       </Container>
     </Layout>
   );
 };
 
-export const getServerSideProps: GetServerSideProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const id = params?.id as string;
-  const movieData = await getMovie(id).then((doc) => {
-    if (doc.exists) {
-      return doc.data();
-    }
-  });
 
-  let props: {} | DetailPageProps = {};
-  if (typeof movieData !== 'undefined') {
-    props = {
-      title: movieData.title,
-      backgroundImg: movieData.backgroundImg,
-      titleImg: movieData.titleImg,
-      subTitle: movieData.subTitle,
-      description: movieData.description,
-    };
-  }
+  const movie = await getMovie(id);
 
   return {
-    props,
+    props: {
+      movie,
+    },
   };
+};
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const categories = await fetchCategoriesForProps();
+
+  let result: GetStaticPathsResult<ParsedUrlQuery> = {
+    paths: [],
+    fallback: false,
+  };
+  Object.entries(categories).forEach((c) =>
+    c[1].forEach((m) => {
+      result.paths = [...result.paths, { params: { id: `${m?.id}` } }];
+    }),
+  );
+
+  return result;
 };
 
 export default DetailPage;

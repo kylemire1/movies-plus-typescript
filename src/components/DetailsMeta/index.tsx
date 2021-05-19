@@ -2,16 +2,16 @@ import Controls from './Controls';
 
 const DetailsMeta = ({
   subtitle,
-  description,
+  overview,
 }: {
-  subtitle: string;
-  description: string;
+  subtitle: string | null | undefined;
+  overview: string | null | undefined;
 }) => {
   return (
     <div>
       <Controls />
-      <h2 className="text-2xl font-semibold">{subtitle}</h2>
-      <p className="py-4 text-2xl">{description}</p>
+      {subtitle && <h2 className="text-2xl font-semibold">{subtitle}</h2>}
+      <p className="py-4 text-2xl max-w-prose-sm">{overview}</p>
     </div>
   );
 };

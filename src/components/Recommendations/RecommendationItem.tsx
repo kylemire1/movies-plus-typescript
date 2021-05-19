@@ -1,17 +1,17 @@
 import Image from 'next/image';
 import Link from 'next/link';
 
-const RecommendationItem = ({ src, href = '#' }: any) => {
+const RecommendationItem = ({ src, href }: { src: string; href: string }) => {
   return (
     <div className="group">
-      <div className="overflow-hidden pt-img-hack relative rounded-lg shadow-2xl border-2 border-gray-600  group-hover:ring-2 ring-brand-white transition duration-200 ease-in-out">
+      <div className="overflow-hidden aspect-w-2 aspect-h-3 relative rounded-lg shadow-2xl border-2 border-gray-600  group-hover:ring-2 ring-brand-white transition duration-200 ease-in-out h-full">
         <Link href={href}>
-          <a className="absolute inset-0">
+          <a className="absolute inset-0 h-full">
             <Image
               className="absolute inset-0 transform group-hover:scale-105 transition-transform duration-200 ease-in-out"
               src={src}
-              width={1200}
-              height={675}
+              layout="fill"
+              objectFit="cover"
             />
           </a>
         </Link>

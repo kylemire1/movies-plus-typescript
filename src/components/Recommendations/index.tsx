@@ -1,6 +1,5 @@
 import Container from '../styled/Container';
-import { useFormattedRecommendData } from '@/utils/hooks/useFormattedRecommendData';
-import { Category } from '@/pages/index';
+import { Category } from '@/lib/movies';
 import RecommendationGrid from './RecommendationGrid';
 
 const Recommendations = ({
@@ -10,13 +9,13 @@ const Recommendations = ({
   sectionTitle: string;
   category: Category;
 }) => {
-  const recommendedData = useFormattedRecommendData(category);
-
   return (
     <>
-      <Container className="pb-6">
-        <h4 className="text-left text-2xl font-bold mb-8">{sectionTitle}</h4>
-        <RecommendationGrid recommendedData={recommendedData} />
+      <Container className="pb-6 mb-16">
+        <h4 className="text-left text-2xl md:text-5xl font-bold mb-8">
+          {sectionTitle}
+        </h4>
+        <RecommendationGrid category={category} />
       </Container>
     </>
   );

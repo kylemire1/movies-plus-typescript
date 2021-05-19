@@ -7,6 +7,9 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {
+      maxWidth: {
+        'prose-sm': '50ch',
+      },
       fontSize: {
         huge: ['4.65rem', '4.5rem'],
       },
@@ -17,6 +20,7 @@ module.exports = {
         header: '5rem',
       },
       minHeight: {
+        detail: '60vh',
         header: '5rem',
         'slider-full': '27.5rem',
       },
@@ -37,5 +41,8 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [require('tailwind-scrollbar-hide')],
+  plugins: [
+    require('tailwind-scrollbar-hide'),
+    require('@tailwindcss/aspect-ratio'),
+  ],
 };
