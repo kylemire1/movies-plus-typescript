@@ -1,6 +1,5 @@
 import { Category, Movie } from '@/lib/movies';
 import { getSlugFromTitle } from '@/utils/getSlugFromTitle';
-import slugify from 'slugify';
 import RecommendationItem from './RecommendationItem';
 
 const RecommendationGrid = ({
