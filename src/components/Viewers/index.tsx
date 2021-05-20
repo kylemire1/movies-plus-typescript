@@ -6,27 +6,27 @@ const Viewers = () => {
     <Container>
       <div className="mt-4 py-8 grid gap-6 md:grid-cols-5">
         <Viewer
-          imgSrc="/images/viewers-disney.png"
+          imgSrc="/images/classics.png"
           videoSrc="/videos/disney.mp4"
           alt="Disney"
         />
         <Viewer
-          imgSrc="/images/viewers-pixar.png"
+          imgSrc="/images/animated.png"
           videoSrc="/videos/pixar.mp4"
           alt="Pixar"
         />
         <Viewer
-          imgSrc="/images/viewers-starwars.png"
+          imgSrc="/images/science-fiction.png"
           videoSrc="/videos/starwars.mp4"
           alt="Star Wars"
         />
         <Viewer
-          imgSrc="/images/viewers-national.png"
+          imgSrc="/images/nature-doc.png"
           videoSrc="/videos/national-geographic.mp4"
           alt="National Geographic"
         />
         <Viewer
-          imgSrc="/images/viewers-marvel.png"
+          imgSrc="/images/comics.png"
           videoSrc="/videos/marvel.mp4"
           alt="Marvel"
         />

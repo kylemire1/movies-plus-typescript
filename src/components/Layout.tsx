@@ -11,6 +11,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   if (!needsAuth) {
     return (
       <>
+        <div className="anchor" id="top" />
         <Header />
         <section className={sectionClasses + (!auth ? ' text-center' : '')}>
           {loading ? <div className={loaderWrapperClasses} /> : children}
@@ -19,9 +20,10 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     );
   }
 
-  // If the route needs auth, don't let any part of it show until auth is resolved
+  // Don't let any part of it show until auth is resolved
   return (
     <>
+      <div className="anchor" id="top" />
       {!loading && <Header />}
       <section className={sectionClasses}>
         {loading ? (

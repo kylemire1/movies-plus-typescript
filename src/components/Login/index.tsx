@@ -32,7 +32,7 @@ const Login = () => {
             with a Movies+ subscription. As of 03/26/21, the price of Movies+
             and The Movies Bundle will increase by $1.
           </p>
-          <OfferLogos src="/images/cta-logo-two.png" width={983} height={55} />
+          <OfferLogos src="/images/offers.png" width={983} height={55} />
         </div>
       </div>
     </>

@@ -20,4 +20,14 @@
   p {
     @apply text-lg max-w-prose;
   }
+  .anchor {
+    @apply block relative -top-40 invisible;
+  }
+}
+
+:target:before {
+  content: '';
+  display: block;
+  height: 200px; /* fixed header height*/
+  margin: -200px 0 0; /* negative fixed header height */
 }
