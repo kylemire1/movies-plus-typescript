@@ -82,8 +82,14 @@ export const getMovie = async (movieId: string): Promise<Movie> => {
 };
 
 type MaybeCategory = Category | undefined;
+export interface CategoryInterface {
+  trending: Category;
+  action: Category;
+  scifi: Category;
+  animation: Category;
+}
 
-export const fetchCategoriesForProps = async () => {
+export const fetchCategoriesForProps = async (): Promise<CategoryInterface> => {
   let trending: MaybeCategory,
     action: MaybeCategory,
     scifi: MaybeCategory,

@@ -1,8 +1,15 @@
 import { Category, Movie } from '@/lib/movies';
+import { getSlugFromTitle } from '@/utils/getSlugFromTitle';
 import slugify from 'slugify';
 import RecommendationItem from './RecommendationItem';
 
-const RecommendationGrid = ({ category }: { category: Category }) => {
+const RecommendationGrid = ({
+  category,
+  anchor,
+}: {
+  category: Category;
+  anchor: string;
+}) => {
   return (
     <div className="grid gap-6 grid-cols-2 md:grid-cols-4">
       {category.length &&
@@ -15,7 +22,9 @@ const RecommendationGrid = ({ category }: { category: Category }) => {
             <RecommendationItem
               key={id}
               src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
-              href={`/detail/${id}-${slugify(title, { lower: true })}`}
+              href={`/detail/${id}-${getSlugFromTitle(
+                title,
+              )}?category=${anchor}`}
             />
           );
         })}

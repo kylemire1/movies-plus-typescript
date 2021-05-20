@@ -10,14 +10,15 @@ const Recommendations = ({
   sectionTitle: string;
   category: Category;
 }) => {
+  const anchor = slugify(sectionTitle, { lower: true });
   return (
     <>
       <Container className="pb-6 mb-16">
-        <div className="anchor" id={slugify(sectionTitle, { lower: true })} />
+        <div className="anchor" id={anchor} />
         <h4 className="text-left text-2xl md:text-5xl font-bold mb-8">
           {sectionTitle}
         </h4>
-        <RecommendationGrid category={category} />
+        <RecommendationGrid category={category} anchor={anchor} />
       </Container>
     </>
   );

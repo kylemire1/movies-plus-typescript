@@ -9,7 +9,7 @@ const Login = () => {
   return (
     <>
       <BackgroundImage src="/images/login-bg-resized.jpg" />
-      <div className="mb-48 py-20 px-10 w-full relative h-screen box-border flex flex-col justify-center items-center">
+      <div className="py-20 px-10 w-full relative h-screen box-border flex flex-col justify-center items-center">
         <div className="flex flex-col justify-center items-center flex-wrap text-center mx-auto w-full max-w-2xl mb-5">
           <h1 className="mb-2">
             <Image
