@@ -24,6 +24,7 @@ const RecommendationGrid = ({
               href={`/detail/${id}-${getSlugFromTitle(
                 title,
               )}?category=${anchor}`}
+              title={title}
             />
           );
         })}
