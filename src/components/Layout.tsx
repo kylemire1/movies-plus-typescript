@@ -7,7 +7,7 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
   const { loading, auth, needsAuth } = useAuth();
 
   useEffect(() => {
-    scrollToElementById('top');
+    scrollToElementById('top', 'auto');
   }, []);
 
   const sectionClasses: string = 'flex flex-col z-10';
