@@ -6,7 +6,7 @@ const Genres = ({ genres }: { genres: Genre[] | undefined }) => {
   }
 
   return (
-    <ul className="flex mt-2">
+    <ul className="flex mt-2 flex-wrap">
       {genres.map(({ id, name }, idx) => {
         return (
           <li key={id} className="mr-1">

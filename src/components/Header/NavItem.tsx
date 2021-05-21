@@ -1,3 +1,4 @@
+import { scrollToElementById } from '@/utils/scrollToElementById';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { MouseEventHandler } from 'react';
@@ -28,11 +29,9 @@ const NavItem = ({
   const anchor = href.replace('/#', '');
   const handleScroll: MouseEventHandler<HTMLAnchorElement> = (event) => {
     event.preventDefault();
-    console.log(typeof window.location.hash);
 
     const target = toTop ? 'top' : anchor;
-    const scrollElement = document.getElementById(target);
-    scrollElement?.scrollIntoView({ behavior: 'smooth' });
+    scrollToElementById(target);
   };
   return (
     <a

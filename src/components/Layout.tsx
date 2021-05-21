@@ -1,8 +1,14 @@
 import { useAuth } from '@/lib/auth';
+import { scrollToElementById } from '@/utils/scrollToElementById';
+import { useEffect } from 'react';
 import Header from './Header';
 
 const Layout = ({ children }: { children: React.ReactNode }) => {
   const { loading, auth, needsAuth } = useAuth();
+
+  useEffect(() => {
+    scrollToElementById('top');
+  }, []);
 
   const sectionClasses: string = 'flex flex-col z-10';
   const loaderWrapperClasses: string =

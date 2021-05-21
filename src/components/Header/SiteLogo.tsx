@@ -1,3 +1,4 @@
+import { scrollToElementById } from '@/utils/scrollToElementById';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
@@ -27,8 +28,7 @@ const SiteLogo = () => {
   }
 
   const handleScroll: MouseEventHandler<HTMLAnchorElement> = (_event) => {
-    const scrollElement = document.getElementById('top');
-    scrollElement?.scrollIntoView({ behavior: 'smooth' });
+    scrollToElementById('top');
   };
 
   return (

@@ -9,8 +9,8 @@ const Container = ({
 }) => {
   return (
     <div
-      className={`w-full block z-10 p-8 ${
-        fullHeight ? 'min-h-screen' : 'min-h-full'
+      className={`w-full top-0 block z-10 p-8 ${
+        fullHeight ? '' : 'min-h-full'
       } ${className}`}
     >
       {children}
