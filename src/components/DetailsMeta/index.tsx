@@ -11,7 +11,7 @@ const DetailsMeta = ({
     <div>
       <Controls />
       {subtitle && <h2 className="text-2xl font-semibold">{subtitle}</h2>}
-      <p className="py-4 text-2xl max-w-prose-sm">{overview}</p>
+      <p className="py-4 text-lg md:text-2xl max-w-prose-sm">{overview}</p>
     </div>
   );
 };
