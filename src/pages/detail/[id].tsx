@@ -75,6 +75,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     props: {
       movie,
     },
+    revalidate: 10,
   };
 };
 
@@ -89,7 +90,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 const transformCategoriesToResult = (categories: CategoryInterface) => {
   let result: GetStaticPathsResult<ParsedUrlQuery> = {
     paths: [],
-    fallback: false,
+    fallback: 'blocking',
   };
   const {} = categories;
   Object.entries(categories).forEach(
