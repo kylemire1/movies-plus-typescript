@@ -6,7 +6,7 @@ import BackgroundImage from '@/components/Login/BackgroundImage';
 import Container from '@/components/styled/Container';
 import {
   Category,
-  CategoryInterface,
+  CategoryObject,
   fetchCategoriesForProps,
   getMovie,
   Movie,
@@ -87,12 +87,11 @@ export const getStaticPaths: GetStaticPaths = async () => {
   return result;
 };
 
-const transformCategoriesToResult = (categories: CategoryInterface) => {
+const transformCategoriesToResult = (categories: CategoryObject) => {
   let result: GetStaticPathsResult<ParsedUrlQuery> = {
     paths: [],
     fallback: 'blocking',
   };
-  const {} = categories;
   Object.entries(categories).forEach(
     ([categoryTitle, category]: [string, Category]) =>
       category.forEach(({ id, title }) => {

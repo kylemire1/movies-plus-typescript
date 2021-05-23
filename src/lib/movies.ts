@@ -58,6 +58,15 @@ export interface Movie {
 
 export type Category = Movie[];
 
+type MaybeCategory = Category | undefined;
+
+export interface CategoryObject {
+  trending: Category;
+  action: Category;
+  scifi: Category;
+  animation: Category;
+}
+
 export const getMoviesByCategoryId = async (
   categoryId: string = 'trending',
 ): Promise<Category> => {
@@ -81,15 +90,7 @@ export const getMovie = async (movieId: string): Promise<Movie> => {
   ).then((res) => res.json());
 };
 
-type MaybeCategory = Category | undefined;
-export interface CategoryInterface {
-  trending: Category;
-  action: Category;
-  scifi: Category;
-  animation: Category;
-}
-
-export const fetchCategoriesForProps = async (): Promise<CategoryInterface> => {
+export const fetchCategoriesForProps = async (): Promise<CategoryObject> => {
   let trending: MaybeCategory,
     action: MaybeCategory,
     scifi: MaybeCategory,
